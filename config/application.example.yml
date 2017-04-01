@@ -1,0 +1,6 @@
+# encoding: utf-8
+
+development:
+  db_host: localhost
+  db_username: postgres
+  db_password: ''
