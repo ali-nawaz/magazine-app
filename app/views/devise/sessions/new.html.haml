@@ -1,0 +1,15 @@
+%h2= t('users.sign_in.head')
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-group
+    = f.label :email
+    = f.email_field :email, autofocus: true, class: 'form-control', required: true
+
+  .form-group
+    = f.label :password
+    = f.password_field :password, autocomplete: 'off', class: 'form-control', required: true
+
+  .actions
+    = f.submit t('users.sign_in.submit'), class: 'btn btn-primary btn-sm'
+
+= render 'devise/shared/links'

@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.4.1
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
@@ -132,3 +133,14 @@ Lint/Debugger:
 # Style preference
 Style/MethodDefParentheses:
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"

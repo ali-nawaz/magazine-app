@@ -1,0 +1,19 @@
+.navbar.navbar-default.navbar-static-top
+  .container
+    %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand(href="#{root_path}")
+      = t('app.name')
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      %ul.nav.navbar-nav
+        - if user_signed_in?
+          %li= link_to current_user.name, '/'
+          %li
+            = link_to destroy_user_session_path, method: :delete do
+              = t('navbar.sign_out')
+
+        - else
+          %li= link_to t('navbar.sign_in'), new_user_session_path
+          %li= link_to t('navbar.sign_up'), new_user_registration_path

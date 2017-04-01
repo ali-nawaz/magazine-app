@@ -20,6 +20,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'devise'
+
 # Assets
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'

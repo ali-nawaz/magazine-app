@@ -7,4 +7,16 @@ en:
     name: Magazine App
 
   navbar:
+    back: Back
     home: Home
+    sign_in: Sign in
+    sign_out: Sign out
+    sign_up: Sign up
+
+  users:
+    sign_in:
+      head: Sign in
+      submit: sign in
+    sign_up:
+      head: Register
+      submit: register
