@@ -1,0 +1,6 @@
+%h1
+  = t('articles.new_article')
+
+= render 'form', article: @article
+
+= link_to t('navbar.back'), articles_path

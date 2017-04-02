@@ -1,0 +1,22 @@
+.well.article
+  .media
+    %a.pull-left(href="#{article_path(article)}")
+      %img.media-object(src="https://dummyimage.com/100x100/cdcdcd/ffffff.png&text=#{article.owner.initials}")
+    .media-body
+      %h4.media-heading= article.title
+      %p= "#{article.content[0..50].strip}..."
+
+      %ul.list-inline.list-unstyled.article-stats
+        %li
+          %span
+            %i.fa.fa-user
+            = article.owner.name_or_username
+        %li= '|'
+        %li
+          %span(title="#{article.created_at}")
+            %i.fa.fa-clock-o
+            = time_ago_in_words article.created_at
+        %li= '|'
+        %li
+          %span
+            = link_to t('articles.read_more'), article

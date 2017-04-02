@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401215210) do
+ActiveRecord::Schema.define(version: 20170401231154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.text     "content",    null: false
+    t.integer  "owner_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "content gin_trgm_ops", name: "articles_on_content_idx", using: :gin
+    t.index "title gin_trgm_ops", name: "articles_on_title_idx", using: :gin
+    t.index ["created_at"], name: "index_articles_on_created_at", using: :btree
+    t.index ["owner_id"], name: "index_articles_on_owner_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",              default: "", null: false

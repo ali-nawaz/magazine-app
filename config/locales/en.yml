@@ -6,9 +6,20 @@ en:
   app:
     name: Magazine App
 
+  articles:
+    create_success: Article was successfully created.
+    error_exp: prohibited this article from being saved
+    new_article: New article
+    owner: by
+    created_at: Created at
+    read_more: Read more
+    recent_articles: Recent articles
+    save: Save
+
   navbar:
     back: Back
     home: Home
+    new_article: New article
     sign_in: Sign in
     sign_out: Sign out
     sign_up: Sign up

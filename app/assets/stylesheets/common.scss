@@ -1,0 +1,52 @@
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: #d9534f;
+  border-radius: 3px 3px 0 0;
+  & + .field_with_errors {
+    border-radius: 0 0 3px 3px;
+  }
+
+  label {
+    color: white;
+  }
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid #d43f3a;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #d9534f;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+.translation_missing {
+  outline: 1px solid #d43f3a;
+}

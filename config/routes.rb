@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  devise_scope :user do
-    root to: 'devise/sessions#new'
-  end
+  resources :articles
+
+  root to: 'articles#index'
 end

@@ -1,0 +1,7 @@
+%h1
+  = t('articles.recent_articles')
+  .pagination-wrap
+    = will_paginate @articles
+
+.container
+  = render @articles

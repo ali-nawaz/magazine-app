@@ -1,0 +1,30 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article {
+  position: relative;
+  .media-object { border-radius: 50%; }
+
+  @media(min-width: 767px) {
+    .article-stats {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+.pagination-wrap {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+
+  @media(min-width: 767px) { float: right; }
+
+  & > .pagination {
+    margin: 0;
+    ul.pagination { margin: 0; }
+  }
+}

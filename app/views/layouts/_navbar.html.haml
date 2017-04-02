@@ -9,7 +9,8 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       %ul.nav.navbar-nav
         - if user_signed_in?
-          %li= link_to current_user.name, '/'
+          %li= link_to current_user.name_or_username, articles_path(owner_id: current_user.id)
+          %li= link_to t('navbar.new_article'), new_article_path
           %li
             = link_to destroy_user_session_path, method: :delete do
               = t('navbar.sign_out')
