@@ -18,3 +18,11 @@
         - else
           %li= link_to t('navbar.sign_in'), new_user_session_path
           %li= link_to t('navbar.sign_up'), new_user_registration_path
+
+      .col-sm-3.col-md-3
+        %form.navbar-form(action="#{articles_path}")
+          .input-group
+            = text_field_tag :q, params[:q], placeholder: t('navbar.search_placeholder'), class: 'form-control'
+            .input-group-btn
+              %button.btn.btn-default(type="submit")
+                %i.glyphicon.glyphicon-search

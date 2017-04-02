@@ -9,6 +9,7 @@ class ArticlesCollection < BaseCollection
     owner_filter
     tag_filter
     sub_tag_filter
+    search_filter
     sort_filters
   end
 
@@ -47,6 +48,14 @@ class ArticlesCollection < BaseCollection
     filter do |rel|
       rel.joins(taggings: :sub_tag)
          .where('taggings.tagger_type = ? AND sub_tags.name = ?', SubTag.name, params[:tag_name])
+    end
+  end
+
+  def search_filter
+    return if params[:q].blank?
+
+    filter do |rel|
+      rel.where('title ILIKE :q OR content ILIKE :q', q: "%#{params[:q]}%")
     end
   end
 end

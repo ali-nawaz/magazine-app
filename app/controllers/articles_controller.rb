@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
   end
 
   def collection_params
-    params.permit(:owner_id, :sort, :page, :per_page, :tag_type, :tag_name)
+    params.permit(:owner_id, :sort, :page, :per_page, :tag_type, :tag_name, :q)
   end
 
   def article_params
