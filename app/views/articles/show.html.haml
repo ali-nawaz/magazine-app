@@ -5,6 +5,10 @@
     %a(href="#{articles_path(owner_id: @article.owner_id)}")
       = @article.owner.name_or_username
   %hr
+  %p.tags
+    = format_taggings @article.taggings
+
+  %hr
   %p
     %span.fa.fa-clock-o
     = t('articles.created_at')

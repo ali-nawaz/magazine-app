@@ -12,6 +12,12 @@
   .form-group
     = f.label :content
     = f.text_area :content, class: 'form-control', required: true
+  .form-group
+    = f.label :tags
+    = f.text_field :tags, class: 'form-control', placeholder: t('articles.tags_help')
+  .form-group
+    = f.label :sub_tags
+    = f.text_field :sub_tags, class: 'form-control', placeholder: t('articles.sub_tags_help')
 
   .actions
     = f.submit t('articles.save'), class: 'btn btn-md btn-primary'

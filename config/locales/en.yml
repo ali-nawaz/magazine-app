@@ -12,9 +12,13 @@ en:
     new_article: New article
     owner: by
     created_at: Created at
+    no_tags: no tags
     read_more: Read more
     recent_articles: Recent articles
     save: Save
+    tags: Tags
+    tags_help: Add tags comma separated e.g social, entertainment
+    sub_tags_help: Add sub tags comma separated e.g facebook, hollywood
 
   navbar:
     back: Back

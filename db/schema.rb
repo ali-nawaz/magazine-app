@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401231154) do
+ActiveRecord::Schema.define(version: 20170402092756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,32 @@ ActiveRecord::Schema.define(version: 20170401231154) do
     t.index "title gin_trgm_ops", name: "articles_on_title_idx", using: :gin
     t.index ["created_at"], name: "index_articles_on_created_at", using: :btree
     t.index ["owner_id"], name: "index_articles_on_owner_id", using: :btree
+  end
+
+  create_table "sub_tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_sub_tags_on_name", using: :btree
+    t.index ["tag_id"], name: "index_sub_tags_on_tag_id", using: :btree
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.string   "tagger_type", null: false
+    t.integer  "tagger_id",   null: false
+    t.integer  "article_id",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["article_id"], name: "index_taggings_on_article_id", using: :btree
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

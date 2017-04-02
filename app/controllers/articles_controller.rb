@@ -28,14 +28,14 @@ class ArticlesController < ApplicationController
   private
 
   def article
-    @_article ||= Article.find(params[:id])
+    @_article ||= Article.includes(:owner, taggings: :tagger).find(params[:id])
   end
 
   def collection_params
-    params.permit(:owner_id, :sort, :page, :per_page)
+    params.permit(:owner_id, :sort, :page, :per_page, :tag_type, :tag_name)
   end
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :tags, :sub_tags)
   end
 end

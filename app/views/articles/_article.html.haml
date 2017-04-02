@@ -20,3 +20,8 @@
         %li
           %span
             = link_to t('articles.read_more'), article
+        %li= '|'
+        %li
+          %span
+            = "#{t('articles.tags')}: "
+            = format_taggings article.taggings
